@@ -25,7 +25,20 @@ const splashOptions = [
   "I can help you think faster.",
   "Stay curious. Build things.",
   "A calm interface for a loud internet.",
-  "Let’s make something useful."
+  "Breaking News: Lil Baby Is Secretly an Adult",
+  "Fun Fact: Teen Pregnancy is shown to decrease around age 20!",
+  "What do you think you're looking at?",
+  "Minecraft did this better.",
+  "Australia is wider than the moon!",
+  "Sharks were on Earth before trees were.",
+  "Ostriches have larger eyes than brains.",
+  "Octopi should really be Octopuses, and octopuses have 3 hearts!",
+  "ARIBA!!!",
+  "Try to hum while closing your nostrils.",
+  "DO NOT eat bread from a bathroom.",
+  "I ran out of creativity.",
+  "Thank you! Thank you! Thank you! Thank you! Thank you!",
+  "To Infinity and Lebron!!!"
 ];
 
 function pickSplashText() {
