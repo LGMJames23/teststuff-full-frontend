@@ -12,17 +12,24 @@ async function fetchWeatherByCoordinates(lat, lon, labelName = "Weather") {
     const tempC = Math.round(data?.current?.temperature_2m ?? 0);
     const tempF = Math.round((tempC * 9) / 5 + 32);
     const weatherCode = data?.current?.weather_code ?? 0;
+    const weatherIcon = document.querySelector(".weather-icon");
 
     weatherTemp.textContent = `${tempF}°F`;
     weatherCondition.textContent = getWeatherLabel(weatherCode);
-    document.getElementById("weatherIcon").textContent = getWeatherIcon(weatherCode);
+    if (weatherIcon) {
+      weatherIcon.textContent = getWeatherIcon(weatherCode);
+    }
+
     if (labelName && labelName !== "My location") {
       cityLabel.textContent = labelName;
     }
   } catch (error) {
     weatherTemp.textContent = "—";
     weatherCondition.textContent = "Weather unavailable";
-    document.getElementById("weatherIcon").textContent = "⚠️";
+    const weatherIcon = document.querySelector(".weather-icon");
+    if (weatherIcon) {
+      weatherIcon.textContent = "⚠️";
+    }
   }
 }
 
