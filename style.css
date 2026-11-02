@@ -176,9 +176,14 @@ select {
   width: 100%;
   border-radius: 12px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
+  background: #f8fafc;
+  color: #111827;
   padding: 0.72rem 0.88rem;
+}
+
+.setting-row select option {
+  color: #111827;
+  background: #ffffff;
 }
 
 .setting-row-inline {

@@ -295,10 +295,11 @@ async function fetchWeatherByCoordinates(lat, lon, labelName = "Weather") {
     }
 
     const data = await response.json();
-    const temp = Math.round(data?.current?.temperature_2m ?? 0);
+    const tempC = Math.round(data?.current?.temperature_2m ?? 0);
+    const tempF = Math.round((tempC * 9) / 5 + 32);
     const weatherCode = data?.current?.weathercode ?? 0;
 
-    weatherTemp.textContent = `${temp}°`;
+    weatherTemp.textContent = `${tempF}°F`;
     weatherCondition.textContent = getWeatherLabel(weatherCode);
     if (labelName && labelName !== "My location") {
       cityLabel.textContent = labelName;
@@ -374,6 +375,71 @@ updateGreeting();
 fetchWeather("New York");
 setInterval(updateTime, 1000);
 profileName.textContent = "Guest";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
