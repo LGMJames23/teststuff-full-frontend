@@ -14,6 +14,24 @@ const weatherTemp = document.getElementById("weatherTemp");
 const weatherCondition = document.getElementById("weatherCondition");
 const profileName = document.getElementById("profileName");
 const mainGreeting = document.getElementById("mainGreeting");
+const weatherIcon = document.getElementById("weather-icon");
+
+function getWeatherIcon(code) {
+  const iconMap = {
+    0: "☀️",   // Clear sky
+    1: "🌤️",  // Mainly clear
+    2: "⛅",   // Partly cloudy
+    3: "☁️",   // Cloudy
+    45: "🌫️",  // Fog
+    48: "🌫️",
+    61: "🌦️", // Rain
+    63: "🌧️",
+    80: "🌧️",
+    95: "⛈️"  // Thunderstorm
+  };
+
+  return iconMap[code] || "🌤️";
+}
 
 const cityCoordinates = {
   "New York": { latitude: 40.7128, longitude: -74.006 },
@@ -132,10 +150,9 @@ const cityCoordinates = {
 
 const splashOptions = [
   "I made this in school.",
-  "Bell is watching your ideas.",
+  "Im watching you...",
   "The future is just a prompt away.",
   "Do people actually read these?",
-  "This app has more personality than my code.",
   "Small ideas become big products.",
   "I can help you think faster.",
   "Stay curious. Build things.",
@@ -297,10 +314,11 @@ async function fetchWeatherByCoordinates(lat, lon, labelName = "Weather") {
     const data = await response.json();
     const tempC = Math.round(data?.current?.temperature_2m ?? 0);
     const tempF = Math.round((tempC * 9) / 5 + 32);
-    const weatherCode = data?.current?.weathercode ?? 0;
+const weatherCode = data?.current?.weathercode ?? 0;
 
-    weatherTemp.textContent = `${tempF}°F`;
-    weatherCondition.textContent = getWeatherLabel(weatherCode);
+weatherTemp.textContent = `${tempF}°F`;
+weatherCondition.textContent = getWeatherLabel(weatherCode);
+document.getElementById("weatherIcon").textContent = getWeatherIcon(weatherCode);
     if (labelName && labelName !== "My location") {
       cityLabel.textContent = labelName;
     }
@@ -337,7 +355,6 @@ function getWeatherLabel(code) {
 
   return weatherMap[code] || "Weather";
 }
-
 document.getElementById("loginForm").addEventListener("submit", (event) => {
   event.preventDefault();
 
