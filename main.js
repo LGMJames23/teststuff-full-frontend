@@ -181,6 +181,7 @@ const splashOptions = [
   "I ran out of creativity.",
   "Thank you! Thank you! Thank you! Thank you! Thank you!",
   "To Infinity and Lebron!!!",
+  "Nuh uh."
 ];
 
 function pickSplashText() {
